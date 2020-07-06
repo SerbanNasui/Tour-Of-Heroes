@@ -9,22 +9,23 @@ import { MessageService } from '../message.service';
   templateUrl: './heroes.component.html', //  the location of the component's template file.
   styleUrls: ['./heroes.component.css'] //the location of the component's private CSS styles.
 })
+
 export class HeroesComponent implements OnInit {
 
   heroes: Hero[];
-  selectedHero: Hero;
+ // selectedHero: Hero;
 
-
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  //constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void{
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponentt: Selected hero id=${hero.id}. Hi. I'm ${hero.name}, do you need my help?`);
-  }
+  // onSelect(hero: Hero): void{
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponentt: Selected hero id=${hero.id}. Hi. I'm ${hero.name}, do you need my help?`);
+  // }
 
   getHeroes(): void{
     this.heroService.getHeroes().subscribe(heroes => this.heroes = heroes)
